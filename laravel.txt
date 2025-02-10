@@ -1,0 +1,181 @@
+(Laravel Latest Version : 11)
+
+1.  .env file -> Used to store environment variables. It is used to store database credentials, Application keys and other sensitive information.
+
+2. composer.json file -> Used to store project dependencies. It is used to store information about the project.
+
+5. app/Http/Controllers/Controller.php -> This is the main controller file of the project. It is used to handle HTTP requests and responses.
+
+6. app/Http/Controllers/AuthController.php -> This is the authentication controller file of the project. It is used to handle user authentication.
+
+7. Eloquent ORM -> This is the Object-Relational Mapping (ORM) system used by Laravel. It is used to interact with the database. (Laravel's built-in database abstraction layer)
+
+8. Blade template engine -> This is the template engine used by Laravel. It is used to render views. (Laravel's built-in template engine)
+
+9. Routing system -> This is the routing system used by Laravel. It is used to map URLs to controller actions.
+
+10. Middleware system -> It is used to filter incoming HTTP requests and outgoing HTTP responses.
+
+11. custom validation rule -> It is used to validate user input data.
+                   Command -> (php artisan make:rule CustomRuleName)
+
+12. Caching system -> It is used to cache frequently accessed data. 
+
+13. Queue system -> It is used to handle background tasks.
+
+14. Event system -> It is used to handle events. 
+
+15. Package manager(Composer) -> It is used to manage project dependencies.
+
+16. Migrations -> It is used to manage database schema changes.
+
+17. Seeding -> It is used to populate the database with initial data.
+
+18. Helpers -> It is used to provide helper functions for common tasks.
+
+19. Facade -> It is used to provide a simple interface to Laravel's components.
+
+20. Package -> It is used to provide a package for common tasks.
+
+21. Service provider -> Used to provide a service provider for common tasks.
+                        Service providers are the central place to configure and bootstrap application services in Laravel.
+
+22. Event listener -> It is used to listen to events.
+
+                   ->  Events are a way to decouple various parts of the application by allowing certain actions to trigger events.(app/Events)
+
+                   -> Listeners are classes that handle these events.(app/Listeners)
+
+23. routes/web.php -> This is the main routing file of the project. It is used to map URLs to controller actions. 
+                   -> These routes are typically used for handling HTTP request that return views, and they are accessible via a web browser.
+
+24. Authentication -> It is used to handle user authentication.
+
+25. artisan command -> It is used to execute artisan commands.
+
+26. dependency injection -> It is used to provide a way to inject dependencies into classes. A design pattern used to implement IoC (Inversion of Control) In Laravel.
+
+27. hasOne and belongsTo -> It is used to define relationships between models.
+
+    hasOne: Indicates that one model has one related model. For example, a User  has one Profile.
+
+    belongsTo: Indicates that a model belongs to another model. For example, a Profile belongs to a User .
+
+28. hasMany and belongsToMany -> It is used to define relationships between models.
+
+    hasMany : Indicates that one model has many related models. For example, a User has many Posts.
+
+    belongsToMany : Indicates that a model belongs to many other models. For example, a User belongs to many Roles.
+
+29. Handle exceptions in Laravel -> Handling mechanism through the 
+                                    (app/Exceptions/Handler.php) file.
+
+30. Task scheduling feature -> It is used to schedule tasks to run at a later time. It is used to run tasks at a specific time or interval.
+
+You can define tasks in the app/Console/Kernel.php file and run them using a single cron entry.
+
+31. API authentication -> Implemented using Laravel Passport or Laravel Sanctum.
+
+32. app/Models -> The app/Models directory is where you define the Eloquent models. Models represent the data structure of your application and are used to interact with the corresponding database tables.
+
+33. cross-site request forgery (CSRF) -> It is a security feature that helps prevent malicious attacks.
+
+34. event broadcasting -> It is used to broadcast events to other parts of the application or even to external services.
+
+35. custom error page -> It is used to display a custom error page when an error occurs. (404.blade.php in resources/views/errors)
+
+
+
+
+To create Laravel-Project, run in cmd:-
+(composer create-project --prefer-dist laravel/laravel project-name)
+
+Laravel Eloquent Crud :-
+
+1. .env file settings(database).[mysql & database name]
+2. php artisan make:model User --controller --resource
+3. change timestamps User(model) : public $timestamps = false; and migrate users table.
+4. add (use App\Models\User;) in userController.php file.
+5. add (use App\Http\Controllers\userController;) in web.php file
+
+6. To fetch all data from database, 
+
+In userController page, 
+
+    public function index()
+    {
+        $users = User::all();
+        return $users;
+    }
+
+7. In web.php(Routes) run : Route::resource('/user', userController::class);
+
+8. To show in view file using foreach loop, 
+    
+    public function index()
+    {
+        $users = User::all();
+        return view("welcome", compact('users'));
+        
+    }
+In view file, add {{ $user->id }} in the table using foreach loop.
+.
+.
+.
+Laravel Eloquent Crud 2nd:-
+
+1. Make add, view & update blade files & add it to the table.
+2. Run (php artisan route:list --name=user) to add the routes in view pages.
+
+    <a href="{{ 'user.create' }}" class="btn btn-primary btn-md mx-1">Create</a>
+    <td><a href="{{ route('user.show', $user->id) }}" class="btn btn-success">View</a></td>
+    <td><a href="{{ route('user.edit', $user->id) }}" class="btn btn-warning">Update</a></td>
+    <td><a href="{{ 'user.destroy', $user->id }}" class="btn btn-danger">Delete</a></td>
+
+3. To create data, add this in userController.php file.
+
+    public function create()
+    {
+        return view("add");
+    }
+   And to store it, 
+    public function store(Request $request)
+    {
+        // return $request;
+
+        // $user = new User;
+
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->password = $request->password;
+        // $user->age = $request->age;
+        // $user->city = $request->city;
+
+        // $user->save();
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'age' => $request->age,
+            'city' => $request->city,
+        ]);
+
+        return redirect()->route('user.index')
+                         ->with('status', 'User added successfully.');
+    }
+    In Models(user.php), add:- protected $guarded = [];
+
+4. To view data, 
+    public function show(User $user)
+    {
+        $users = User::find($user);
+        // return $users;
+
+        return view("viewuser", compact('users'));
+
+    }
+
+
+Laravel Eloquent Crud 3rd:-
+

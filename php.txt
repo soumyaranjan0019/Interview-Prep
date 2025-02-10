@@ -1,0 +1,165 @@
+(PHP Latest Version : 8.4.2)
+
+1. variables -> A symbolic name that represents memory location to store data ($).
+
+2. Echo & Print -> To display O/P. Echo can handle multiple parameters & doesn't return anything. where Print can handle only one parameter & returns 1.
+
+3. Superglobals -> Pre-defined Global variables (Acceceble from anywhere of the script).
+
+    $_GET -> To get data from URL.
+
+    $_POST -> used to collect data sent to the server via HTTP POST requests, typically from forms.
+
+    $_SESSION -> used to store session variables to use across multiple pages.
+
+    $_COOKIE -> used to access cookie variables sent by the client. Cookies are small pieces of data stored on the user's computer.
+
+    $_FILES -> used to access file upload information. It contains details about files uploaded via forms.
+
+    $_ENV -> used to access environment variables.
+
+    $_REQUEST -> Contains the contents of both $_GET and $_POST as well as $_COOKIE. It is used to collect data from various sources.
+
+    $_SERVER -> Contains information about the server environment and the current request. It includes details such as headers, paths, and script locations.
+
+    GLOBALS -> An associative array containing all global variables in the script. It allows access to variables defined outside of functions or classes.
+
+
+4. Include & Require -> Both are used to include other files. 
+                        Require->Fatal Error (If file is missing.)
+                        Include->Warning (Script Continues.)
+
+5. Array -> Data Str. to store multiple values in a variable. 
+            Indexed Arrays -> Based on numeric index.
+            Associative Array -> Key value pairs.
+            Multidimensional Array -> Arrays present inside an array.
+
+6. Mysqli & PDO(PHP data objects) -> Database connectivity.
+
+            Mysqli -> Provides OO Approach.
+            PDO -> Database access layer(Work with multiple Databases.)
+
+7. SESSION -> Stores in server side.(Temporary)
+   COOKIE  -> Stores in Client side.(Can be saved in user's browser)
+
+8. Function -> SOS(state of statement) to perform a specific task.
+
+9. GET  -> Request data passed through URL.
+   POST -> Request data passed through SERVER.(Secured, bcz data doesn't show in URL)
+
+10. $message  -> Variable (Fixed)
+    $$message -> Reference Variable (Dynamic)
+
+11. Errors(3-types) & levels -> Notice()
+                             -> Warning()
+                             -> Exeption()
+
+12. ForEach -> Used to iterate over Arrays & Objects.
+
+13. PEAR(PHP Extention & Application Repo) -> Used for Reusable PHP components.
+    (To use php libraries & packages.)
+
+14. php.ini -> Configuration file for PHP. (To configure PHP settings.) 
+            -> [Extensions, Output Buffering, Time Zone, File Uploads, Memory Limit, Error Reporting etc.]
+
+OOPS Concept :-
+
+1. OOP -> PP(Program Paradigm), [uses objects -> Represent data], 
+                                [uses Methods -> Manipulate the data]
+
+2. Magic Codes -> Depricated feature(Auto-escapes user-input[Creates security vulnerability])
+
+3. Autoload -> Load classes automatically.
+
+4. Namespace -> Used to organize classes (Handle naming conflicts)
+
+5. Error/Exception Handling -> try(code to monitor)-catch(Handle Errors)-finally(clean-up code)
+
+6. Class  -> Blueprint of obj. (With specific prop & methods)
+   Object -> Instance of class.
+
+7. Abstract Class -> Doesn't Instanciate (Provides base for its sub-classes &       Abstract methods implements on sub-classes)
+
+8. Interface -> collection of AM (Abstract Methods) implements in classes.
+
+9. Trait -> Code Reusable Mechanism (Shared on multiple classes)
+         -> Used to Overcome multiple inheritance limits.
+
+10. Polymorphism -> A concept (that a Function can behave multiple forms).
+                 -> Achieved through [Method Overloading or Method Overriding].
+
+11. Static(::) -> Static prop & methods can be accessed without creating instances of class. (Class level props & methods.)
+
+12. __construct -> Calls automatically when an obj of a class is created.
+
+13. __destruct  -> Calls automatically when an obj of a class is destroyed.(To Clean-up tasks.)
+
+14. Inheritance -> Allows a class(child) to inherit prop & methods from another 
+class(parent).
+
+
+Advanced :-
+
+1. Database Transactions -> A series of SQL statements, that executes automatically.(If a statement fails, all rollback automatically. If succeeds, Transaction commits)
+
+2. Dependancy Injection -> A design pattern(Dependancies Provide outside of the class, to make classes flexible & maintainable)
+
+3. Restful API -> Architectural style (To create web services).
+               -> Http methods used(GET, POST, PUT, DELETE)
+               -> Data exchanges in JSON format.
+
+4. CROSS()  -> Security feature(implements in browser).
+            -> To allow/block web pages.
+
+5. Composer -> PHP dependancy manager(To Install & Autoload libraries).
+
+6. Namespace Autoload -> Load classes automatically(Not to write manually)
+
+7. MVC -> A design pattern [Model -> Represents data
+                            View  -> Displays UI
+                            Controller -> Handles User Input]
+       -> Improves code maintainability & readability.
+
+8. Composer Autoload        -> Follows PSR-0 & PSR-4 
+   PSR(PHP Standard Recomm) -> Widely Acceptable in PHP Community.
+
+9. DIC(Dependancy Injection Container) -> A design pattern(Which creates obj & resolve their Dependancies).
+
+10. Middleware -> Software component in b/w [Request & Response]
+               -> Customize Request Processing Pipeline.
+
+11. Design Pattern PHP -> Reusable solution(For common design problems) in OOP.
+
+12. Laravel -> Develop web apps, includes(Eloquent ORM, Blade Template Engine & Rich Ecosystem of library).
+
+13. Asynchronous Programming -> Executes multiple tasks parallely.
+
+14. Micro Services -> A Software design approach (Apps divide into small indepen. service[Each service handles a specific task]).
+
+15. Rest API Authentication -> Includes [1. Token Based Auth
+                                         2. OAuth
+                                         3. JWT(JSON Web Tokens)]
+                            -> To add security layer.
+
+16. Docker -> A Containerisation Platform (Used to develop & deploy).
+
+17. GraphQL -> A Query Language for APIs (To Fetch data to Client apps).
+
+18. Composer scripts -> Used to [1. Build Task
+                                 2. Testing
+                                 3. Deploy automation] 
+                     -> Defines custom commands.
+            
+19. Event Driven Programming -> Executes through (Code Events & Event Listeners)
+                             
+20. Mem cache -> MOCS(memory Object caching system). Stores key value pair.
+    Redis     -> A DS Server (Includes Strings, Lists, Sets etc)
+
+21. PHP Unit -> A Testing Framework (used for Unit Testing)
+
+22. PHP OOP Catch -> A Byte Code Catch(To decrease Response time)
+
+23. Web Socket -> A Communication Protocol (Used for Bi-directional Communication).
+               -> Real-time data exchanges in web apps.
+
+24. Webhook -> A server to send real-time data to another server.(When a specific event occurs.)

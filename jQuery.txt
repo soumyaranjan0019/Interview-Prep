@@ -1,0 +1,45 @@
+1. jQuery -> Fast & lightweight Js library.
+          -> Designed to simplify DOM Manipulation, Event handling, animations & AJAX Interactions.
+
+2. Include jQuery -> CDN (Content Delivery Network) link & Downloading & Hosting locally.
+
+3. document.ready() -> Executes when the DOM is ready without waiting for images & other resources.
+
+   window.onload    -> Executes only after the entire page including images has loaded.
+
+4. $ in jQuery -> Shortcut Identifier.
+               -> Used to select elements, Handle events & perform various ops. in jQuery.
+
+5. select elements in jQuery -> Using CSS-style selectors. 
+                                $("#id"), $(".class"), $("tag"), $("parent > child")
+
+6. Hide & Show elements -> $("#element").hide(), $("#element").show(), $("#element").toggle()
+
+
+
+7. .text() -> Get or set Content.
+   .html() -> Get or set HTML.
+   .val()  -> Get or set value of i/p elements.
+
+8. Event Delegation -> Allows binding elements to create elements dynamically using parent elements.
+
+9. $(this)         -> Refers to the current element within the event handler.
+   $(event.target) -> Refers to the element that triggered the event.
+   event.currentTarget -> Refers to the element to which the event is attached.
+
+10. AJAX Request using jQuery -> 
+
+                        $.ajax({
+                            url : "data.json",
+                            type : "GET",
+                            success : function(response){
+                                console.log(response);
+                            },
+                            error : function(error){
+                                console.log("Error:", error);
+                            }
+                        });
+
+11. .bind() -> 
+    .on()   -> 
+    .live() -> 
