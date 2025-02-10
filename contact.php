@@ -104,3 +104,5 @@
     ?>
 </body>
 </html>
+
+<!-- create uploads folder to store files. -->
