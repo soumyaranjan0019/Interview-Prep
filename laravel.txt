@@ -1,6 +1,6 @@
 (Laravel Latest Version : 11)
 
-1.  .env file -> Used to store environment variables. Like database credentials, Application keys and other sensitive information.
+1.  .env file -> Used to store environment variables. Like database credentials, Application keys and other sensitive info.
 
 2. composer.json file -> Used to store project dependencies. It is used to store information about the project.
 
